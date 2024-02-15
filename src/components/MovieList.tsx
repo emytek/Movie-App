@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 interface Movie {
   Title: string;
   Year: string;
@@ -8,15 +9,17 @@ interface Movie {
   Poster: string;
 }
 
-interface MovieListProps {
+interface MoviesListProps {
   movies: Movie[];
 }
 
-const MovieList: React.FC<MovieListProps> = (props) => {
+const MovieList: React.FC<MoviesListProps> = ({ movies }) => {
   return (
-    <div>
-      {props.movies.map((movie, index) => (
-        <img key={index} src={movie.Poster} alt={movie.Title} />
+    <div className="movie-list-container">
+      {movies.map((movie, index) => (
+        <div key={index} className="movie-card">
+          <img src={movie.Poster} alt={movie.Title} />
+        </div>
       ))}
     </div>
   );
